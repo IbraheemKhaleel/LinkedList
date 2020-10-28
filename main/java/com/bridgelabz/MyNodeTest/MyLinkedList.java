@@ -19,9 +19,17 @@ public class MyLinkedList<K> {
 			this.head = newNode;
 			this.head.setNext(tempNode);
 		}
-		
 	}
-
+	public void append(MyNode newNode) {
+		if(this.head == null )
+			this.head = newNode;
+		if(this.tail == null)
+			this.tail = newNode;
+		else {
+			this.tail.setNext(newNode);
+			this.tail = newNode;	
+		}		
+	}
 	public void printNodes() {
 		StringBuffer myNodes = new StringBuffer("My Nodes  ");
 		INode tempNode = head ;
@@ -31,8 +39,6 @@ public class MyLinkedList<K> {
 			tempNode = tempNode.getNext();
 		}
 		myNodes.append(tempNode.getKey());
-		System.out.println(myNodes);
-		
+		System.out.println(myNodes);	
 	}
-
 }
