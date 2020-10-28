@@ -45,4 +45,33 @@ public class MyLinkedListTest {
 				 myLinkedList.head.equals(myFirstNode);
 		Assert.assertTrue(result);
 	}
+	@Test
+	public void givenThreeValues_WhenInsertingInBetweenLinked_ShouldPassLinkedListResult() {
+		MyNode<Integer> myFirstNode = new MyNode<>(70);	
+		MyNode<Integer> mySecondNode = new MyNode<>(30);
+		MyNode<Integer> myThirdNode = new MyNode<>(56);
+		MyLinkedList myLinkedList = new MyLinkedList();
+		myLinkedList.add(myFirstNode);
+		myLinkedList.append(myThirdNode);
+		myLinkedList.insert(myFirstNode ,mySecondNode);
+		myLinkedList.printNodes();
+		boolean result = myLinkedList.tail.equals(myThirdNode) &&
+				 myLinkedList.head.getNext().equals(mySecondNode) &&
+				 myLinkedList.head.equals(myFirstNode);
+		Assert.assertTrue(result);
+	}
+	@Test
+	public void givenThreeValues_WhenFirstElementDeleted_ShouldPassLinkedListResult() {
+		MyNode<Integer> myFirstNode = new MyNode<>(70);	
+		MyNode<Integer> mySecondNode = new MyNode<>(30);
+		MyNode<Integer> myThirdNode = new MyNode<>(56);
+		MyLinkedList myLinkedList = new MyLinkedList();
+		myLinkedList.add(myFirstNode);
+		myLinkedList.add(mySecondNode);
+		myLinkedList.add(myThirdNode);
+		myLinkedList.delete();
+		myLinkedList.printNodes();
+		boolean result = myLinkedList.head.equals(mySecondNode);
+		Assert.assertTrue(result);
+	}
 }
